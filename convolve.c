@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 {
     if(argc != 3)
     {
-        cout<<"Incorrect number of arguements.\nPlease provide an input in the form ./a.out <height> <width>\n";
+        cout<<"Incorrect number of arguements.\nPlease provide an input in the form ./a.out <width> <height>\n";
         return 0;
     }
     int height = atoi(argv[1]), width = atoi(argv[2]);
