@@ -3,14 +3,16 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-    int height, width;
+    cout<<argc<<endl;
+    cout<<argv[0]<<endl;
+    int height = atoi(argv[1]), width = atoi(argv[2]);
 
     cout<<"Please enter the height: ";
-    cin>>height;
+//    cin>>height;
     cout<<"Please enter the width: ";
-    cin>>width;
+//    cin>>width;
     
     clock_t start = time(0);
 
