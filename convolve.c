@@ -5,33 +5,27 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    cout<<argc<<endl;
-    cout<<argv[0]<<endl;
+    if(argc != 3)
+    {
+        cout<<"Incorrect number of arguements.\nPlease provide an input in the form ./a.out <height> <width>\n";
+        return 0;
+    }
     int height = atoi(argv[1]), width = atoi(argv[2]);
 
-    cout<<"Please enter the height: ";
-//    cin>>height;
-    cout<<"Please enter the width: ";
-//    cin>>width;
-    
     clock_t start = time(0);
 
-    int input[width][height];
+    unsigned char input[width][height];
     int outputX[width][height], outputY[width][height];
     int xMin = 0, xMax = 0, yMin = 0, yMax = 0;
-    
+    int count = 1;    
     srand(time(NULL));
     for(int i = 0; i < width; i++)
-    {
         for(int j = 0; j < height; j++)
         {
             input[i][j] = rand() % 256;
-            cout<<input[i][j]<< "\t";
             outputX[i][j] = 0;
             outputY[i][j] = 0;
         }
-        cout<<"\n";
-    }
     int j = 0, i = 0; 
     for(i = 0; i < width; i++) // Loops that apply the [-1, 0, 1] vertical and horizontal filters
     {
@@ -79,23 +73,23 @@ int main(int argc, char* argv[])
                 yMax = outputY[i][j];
         }
     }
-    cout<<"\ndx Matrix\n";
-    for(int i = 0; i < width; i++)
+    cout<<"dx Matrix";
+    for(int i = 0; i < width; i++) // Print out dx matrix
     {
         cout<<"\n";
         for(int j = 0; j < height; j++)
             cout<<outputX[i][j]<<"\t";
     }
-    cout<<"\nMax: "<<xMax<<"\tMin: "<<xMin;
+    cout<<"\n\nMax: "<<xMax<<"\tMin: "<<xMin;
 
-    cout<<"\n\ndy Matrix\n";
-    for(int i = 0; i < width; i++)
+    cout<<"\n\n\ndy Matrix";
+    for(int i = 0; i < width; i++) // Print out dy matrix
     {
         cout<<"\n";
         for(int j = 0; j < height; j++)
             cout<<outputY[i][j]<<"\t";
     }
-    cout<<"\nMax: "<<yMax<<"\tMin: "<<yMin;
-    cout<<"\nRun time: "<<(double)(time(0) - start)/CLOCKS_PER_SEC << "\n";
+    cout<<"\n\nMax: "<<yMax<<"\tMin: "<<yMin;
+    cout<<"\n\n\nRun time: "<<(double)(time(0) - start)/CLOCKS_PER_SEC << "\n";
 
 }
