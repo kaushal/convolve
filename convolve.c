@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
     }
     int height = atoi(argv[1]), width = atoi(argv[2]);
 
-    clock_t start = time(0);
+    clock_t start = clock();
 
     unsigned char input[width][height];
     int outputX[width][height], outputY[width][height];
@@ -90,6 +90,6 @@ int main(int argc, char* argv[])
             cout<<outputY[i][j]<<"\t";
     }
     cout<<"\n\nMax: "<<yMax<<"\tMin: "<<yMin;
-    cout<<"\n\n\nRun time: "<<(double)(time(0) - start)/CLOCKS_PER_SEC << "\n";
+    cout<<"\n\n\nRun time: "<<(double)(clock() - start)/(float)CLOCKS_PER_SEC << "\n";
 
 }
