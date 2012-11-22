@@ -1,5 +1,5 @@
 Instructions: 
 To run the program: 
-    gcc convolve.c
+    g++ convolve.cpp
     ./a.out <width> <height>
 
